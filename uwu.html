@@ -1,0 +1,129 @@
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor</title>
+    <style>
+        * {
+            background-color: #EAAC9C;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .columna-central {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px; /* Ajusta el ancho de la columna */
+            height: 100%;
+            background-color: #EAAC9C;
+            z-index: -1; /* Asegura que esté detrás del texto */
+        }
+
+        h1 {
+            color: rgb(255, 9, 9);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        h1:hover {
+            color: rgb(255, 0, 140);
+        }
+
+        div > h1 {
+            color: rgb(255, 227, 176);
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function mostrarPoema(poema) {
+            alert(poema);
+        }
+
+        function verificarContraseña() {
+            var password = document.querySelector("input[type='text']").value;
+            if (password === "ArP") {
+                mostrarVentanas();
+            } else {
+                alert("Contraseña incorrecta. Intenta nuevamente.");
+            }
+        }
+
+        function mostrarVentanas() {
+            // Lista de las URLs de tus 11 fotos con los IDs de Google Drive
+            var fotos = [
+                "https://drive.google.com/uc?export=view&id=1n5mWUYALcy7GHk077sgFotn5RYPT6aMj",  // Imagen 1
+                "https://drive.google.com/uc?export=view&id=1PdRs4T6quAz2yt3ZfE9J8QAWJoC7Vn6m",  // Imagen 2
+                "https://drive.google.com/uc?export=view&id=1n5mWUYALcy7GHk077sgFotn5RYPT6aMj",  // Imagen 3
+                "https://drive.google.com/uc?export=view&id=1Q_aUUZRJLC1SPfH0ntTDxz2UMpfGvv2g",  // Imagen 4
+                "https://drive.google.com/uc?export=view&id=1FSXALLvgBfQZgb5IuMIAL1ZXc_pawucL",  // Imagen 5
+                "https://drive.google.com/uc?export=view&id=1yy-a6GyKOeIg9I1DywGA651lSKFG5J1U",  // Imagen 6
+                "https://drive.google.com/uc?export=view&id=1OLMWBXpUZBLyuCy_q5-PQNnqW1ZFfvLv",  // Imagen 7
+                "https://drive.google.com/uc?export=view&id=1AMdKt-AL4sTbqysXxSxs8eA0Nu-kV334",  // Imagen 8
+                "https://drive.google.com/uc?export=view&id=1c9QUeoNXntxsZGi3lCkalgjZpfYu-u4E",  // Imagen 9
+                "https://drive.google.com/uc?export=view&id=1MpnMPubBvQ4wiYTj8CAlBAVp-gaaiQH8", // Imagen 10
+            ];
+
+            // Abre una ventana nueva para cada foto en una posición aleatoria
+            for (var i = 0; i < fotos.length; i++) {
+                // Genera posiciones aleatorias para cada ventana
+                var posX = Math.floor(Math.random() * (window.innerWidth - 400)); // Ancho de la ventana
+                var posY = Math.floor(Math.random() * (window.innerHeight - 400)); // Alto de la ventana
+
+                // Abre la ventana en una posición aleatoria
+                window.open(fotos[i], "Foto " + (i + 1), `width=400,height=400,left=${posX},top=${posY}`);
+            }
+        }
+
+        function mostrarImagenEspecial() {
+            // Imagen especial que quieres mostrar
+            var imagenEspecial = "https://drive.google.com/uc?export=view&id=1KBCWTaCgU5QadumAftpSEr0oRZQLmawY";
+
+            // Abrir la imagen en una nueva ventana emergente
+            window.open(imagenEspecial, "Imagen Especial", "width=900,height=190");
+        }
+    </script>
+</head>
+<body>
+    <!-- Columna central blanca -->
+    <div class="columna-central"></div>
+
+    <h1 onclick="mostrarPoema('Eres mi sol en cada día,\ntu luz ilumina mi alegría.')">Magui</h1>
+    <h1 onclick="mostrarPoema('Eres mi amorcito divino,\ntu amor es mi mejor destino.')">Amorcito</h1>
+    <h1 onclick="mostrarPoema('Guapa por fuera, hermosa por dentro,\nen mi corazón siempre te encuentro.')">Guapa</h1>
+    <h1 onclick="mostrarPoema('Uy, qué suerte la mía,\namarte toda la vida.')">Uy</h1>
+    <h1 onclick="mostrarPoema('Inteligente, dulce y genial,\ntu amor es un regalo sin igual.')">Inteligente</h1>
+    
+    <div>
+        <h1 onclick="mostrarImagenEspecial()">¡TE AMO!</h1>
+    </div>
+
+    <p>Contraseña</p>
+    <input type="text" placeholder="Nuestros símbolos ;3">
+    <button onclick="verificarContraseña()">Enviar</button>
+
+</body>
+</html>
